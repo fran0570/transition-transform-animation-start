@@ -35,3 +35,51 @@
 	background-color: #e89380;
 	/*purple*/
 }
+
+/* ********************************************** */
+				/* Transtition */
+/* ********************************************** */
+
+/*  using transition b1 selector to select and apply
+	transitions to box 1 */
+	.transition .b1 {
+		transition-property: background-color;
+		transition-duration: 1s;
+		transition-delay: 500ms;
+		transition-timing-function: ease-in;
+	}
+	
+	.transition .b1:hover {
+		background-color: #e89380;
+	}
+	
+	/*  using transition b1 selector to select and apply
+		combined transitions to box 2 */
+	
+	.transition .b2 {
+		transition-property: width;
+		transition-duration: 2s;
+		transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+	
+		/* for multiple combined transitions
+		transition name duration timing-function delay */
+		/* method 1: all transition have the same values*/
+		transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+		/* method 2: individual values set for each properties*/
+		transition: width 1s ease-in, 
+					height 3s linear 0.5s;
+	}
+	
+	.transition .b2:hover {
+		width: 500px;
+		height: 100px;
+	}
+	
+	.transition .b3 {
+		transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1)
+	}
+	
+	.transition .b3:hover {
+		width: 500px;
+		height: 100px;
+	}
