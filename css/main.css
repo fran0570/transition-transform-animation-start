@@ -42,44 +42,185 @@
 
 /*  using transition b1 selector to select and apply
 	transitions to box 1 */
-	.transition .b1 {
-		transition-property: background-color;
-		transition-duration: 1s;
-		transition-delay: 500ms;
-		transition-timing-function: ease-in;
+.transition .b1 {
+	transition-property: background-color;
+	transition-duration: 1s;
+	transition-delay: 500ms;
+	transition-timing-function: ease-in;
+}
+
+.transition .b1:hover {
+	background-color: #e89380;
+}
+
+/*  using transition b1 selector to select and apply
+	combined transitions to box 2 */
+
+.transition .b2 {
+	transition-property: width;
+	transition-duration: 2s;
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+	/* for multiple combined transitions
+	transition name duration timing-function delay */
+	/* method 1: all transition have the same values*/
+	transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+	/* method 2: individual values set for each properties*/
+	/* property name | duration | easing function | delay */
+	transition: width 1s ease-in 0s, 
+				height 2s linear 1s;
+}
+
+.transition .b2:hover {
+	width: 500px;
+	height: 100px;
+}
+
+/*  using transition b3 selector to select and apply
+combined and seperate transitions to box 3 */
+.transition .b3 {
+	transition: width 1s, height 2s;
+	transition-timing-function: ease;
+	transition-delay: 500ms;
+}
+
+.transition .b3:hover {
+	width: 500px;
+	height: 100px;
+}
+
+/* ********************************************** */
+				/* Transform */
+/* ********************************************** */
+/*  they use functions passing in argument 
+	like c#/c++, java, and javascript */
+
+.transform .b1 {
+	/* rotate function passing in 0deg argument */
+	transform: rotate(0deg);
+	/* transform: rotateX(0deg); */
+	/* transform-origin: top right; */
+	transition: transform 0.5s ease-in-out 0.5s;
+}
+
+.transform .b1:hover{
+	/* rotate function passing in 180deg argument */
+	transform: rotate(180deg);
+	/* transform: rotateX(180deg); */
+}
+
+.transform .b2 {
+	transform: scale(1);
+	/* transform-origin: top left; */
+	transition: transform 0.5s ease-out;
+}
+
+.transform .b2:hover{
+	transform: scale(2);
+	/* transform: scale(2, 1.5); */
+	/* transform: scaleX(2); */
+	/* transform: scaleY(1.5); */
+}
+
+.transform .b3 {
+	transform: translate(0) rotate(0);
+	/* This doesn't work 
+	transition: transform 1s ease-in 0s, 
+				rotate 2s linear 1s;*/
+	transition: transform .5s ease-in 0.5s;
+}
+
+.transform .b3:hover {
+	transform: translate(300px, -100px) rotate(180deg);
+}
+
+.transform .b4 {
+	transform: skew(0) rotate(0);
+	transition: transform .5s ease-in 0.5s;
+}
+
+.transform .b4:hover {
+	transform: skew(45deg) rotate(180deg);
+}
+
+/* ********************************************** */
+				/* Animation */
+/* ********************************************** */
+
+@keyframes changeBg {
+	from{
+		background-color: #85e1f4;
 	}
-	
-	.transition .b1:hover {
+	to {
 		background-color: #e89380;
 	}
-	
-	/*  using transition b1 selector to select and apply
-		combined transitions to box 2 */
-	
-	.transition .b2 {
-		transition-property: width;
-		transition-duration: 2s;
-		transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-	
-		/* for multiple combined transitions
-		transition name duration timing-function delay */
-		/* method 1: all transition have the same values*/
-		transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-		/* method 2: individual values set for each properties*/
-		transition: width 1s ease-in, 
-					height 3s linear 0.5s;
+}
+
+.animation .b1 {
+	/* these are the minimal necessaire statements to make animation work */
+	animation-name: changeBg;
+	animation-duration: 2s;
+	/* these are just extras */
+	animation-delay: 2s;
+	animation-iteration-count: infinite;
+	/* animation-direction: reverse; */
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes translateBox {
+	/* this method gives us 4 keyframes */
+	0%{
+		transform: translate(0);
 	}
-	
-	.transition .b2:hover {
-		width: 500px;
-		height: 100px;
+	33% {
+		transform: translate(200px, 0);
+	} 
+	66% {
+		transform: translate(200px, 200px);
+	} 
+	100% {
+		transform: translate(400px, 200px);
 	}
-	
-	.transition .b3 {
-		transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1)
+}
+
+.animation .b2 {
+	animation-name: translateBox;
+	animation-delay: 5s;
+	animation-duration: 4s;
+	/* animation-iteration-count: infinite; */
+	animation-timing-function: ease-in-out;
+	/* makes the last keyframe the final state of the object */
+	animation-fill-mode: forwards;
+}
+
+@keyframes translateBox2 {
+	/* this method gives us 4 keyframes */
+	0%{
+		transform: translate(0);
 	}
-	
-	.transition .b3:hover {
-		width: 500px;
-		height: 100px;
+	33% {
+		transform: translate(200px, 0);
+	} 
+	66% {
+		transform: translate(200px, -200px);
+	} 
+	100% {
+		transform: translate(0, -200px);
 	}
+}
+
+.animation .b3 {
+	animation-name: translateBox2;
+	animation-delay: 5s;
+	animation-duration: 4s;
+	animation-timing-function: ease-in-out;
+	/* makes the last keyframe the final state of the object */
+	/* animation-fill-mode: forwards; */
+}
+
+/* shorthand form */
+/* animation: duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+.animation .b4 {
+	animation: 4s ease-in-out 5s infinite normal forwards none translateBox;
+}
