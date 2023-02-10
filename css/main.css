@@ -237,6 +237,7 @@ combined and seperate transitions to box 3 */
 }
 
 @keyframes jump {
+	/* this method gives us a 6 keyframes animation */
 	10%,
 	25% {
 	  transform: scale(1.3, 0.7);
@@ -284,6 +285,7 @@ combined and seperate transitions to box 3 */
 }
   
 @keyframes wave {
+	/* this method gives us 5 keyframes */
 	0%,
 	50%,
 	100% {
