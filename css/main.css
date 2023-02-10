@@ -233,7 +233,8 @@ combined and seperate transitions to box 3 */
 /* animation: name | duration | timing-function | delay | iteration-count |
 	 direction | fill-mode */
 .animation .b4 {
-	animation: translateBox 4s ease-in-out 5s 1 normal forwards ;
+	animation: translateBox 4s ease-in-out 5s 1 normal forwards;
+	background-size: cover;
 }
 
 @keyframes jump {
@@ -308,7 +309,7 @@ combined and seperate transitions to box 3 */
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 }
-
+/* what comes after the : colon = CSS Pseudo-elements */
 .wave:nth-child(1) {
 	animation-delay: 0.2s;
 }
@@ -327,4 +328,9 @@ combined and seperate transitions to box 3 */
 
 .wave:nth-child(5) {
 	animation-delay: 1s;
+	
 }
+
+/* ********************************************** */
+				/* Cool CSS Buttons */
+/* ********************************************** */
