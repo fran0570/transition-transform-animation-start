@@ -225,6 +225,7 @@ combined and seperate transitions to box 3 */
 	animation-delay: 5s;
 	animation-duration: 4s;
 	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
 	/* makes the last keyframe the final state of the object */
 	/* animation-fill-mode: forwards; */
 }
